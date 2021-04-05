@@ -4,11 +4,11 @@ import lombok.extern.slf4j.Slf4j;
 import me.js.search.application.SearchService;
 import me.js.search.dto.SearchRequest;
 import me.js.search.dto.SearchResponse;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -21,13 +21,13 @@ public class SearchRestController {
         this.searchService = searchService;
     }
 
-    @GetMapping
-    public ResponseEntity<SearchResponse> search(@RequestBody final SearchRequest searchRequest) {
+    @PostMapping
+    public ResponseEntity<List<SearchResponse>> search(@RequestBody final SearchRequest searchRequest) {
 
         long start = System.nanoTime();
         log.info("SearchRestController : {}", searchRequest);
 
-        SearchResponse searchResponse = searchService.getSearchResponse();
+        List<SearchResponse> searchResponse = searchService.getSearchResponse(searchRequest);
 
         long duration = (System.nanoTime() - start) / 1_000_000;
         System.out.println("완료 시간 : " + duration + " msecs");
