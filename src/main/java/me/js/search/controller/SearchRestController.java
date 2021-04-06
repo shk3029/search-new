@@ -12,7 +12,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping(value = "/api/search")
+@RequestMapping(value = "/api/search", produces = MediaType.APPLICATION_JSON_VALUE)
 public class SearchRestController {
 
     private final SearchService searchService;
@@ -22,7 +22,7 @@ public class SearchRestController {
     }
 
     @PostMapping
-    public ResponseEntity<List<SearchResponse>> search(@RequestBody final SearchRequest searchRequest) {
+    public ResponseEntity<List<SearchResponse>> search(@RequestBody SearchRequest searchRequest) {
 
         long start = System.nanoTime();
         log.info("SearchRestController : {}", searchRequest);

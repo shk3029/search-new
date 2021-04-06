@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+service:
+  web:
+    uri: "http://localhost:8082/api/search/web"
+  app:
+    uri: "http://localhost:8082/api/search/app"
+  chat:
+    uri: "http://localhost:8081/api/search/chat"
