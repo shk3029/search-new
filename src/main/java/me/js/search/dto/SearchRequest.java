@@ -6,19 +6,19 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SearchRequest {
-    private String query;
+    private String keyword;
 
     public SearchRequest() {
     }
 
-    public SearchRequest(String query) {
-        this.query = query;
+    public SearchRequest(String keyword) {
+        this.keyword = keyword;
     }
 
     @Override
     public String toString() {
         return "SearchRequest{" +
-                "query='" + query + '\'' +
+                "keyword='" + keyword + '\'' +
                 '}';
     }
 }

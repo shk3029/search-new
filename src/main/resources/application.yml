@@ -2,10 +2,19 @@ server:
   port: 8080
 
 service:
+  totalsearch:
+    uri: "http://10.129.231.61:14050/search/totalsearch"
+  autocomplete:
+    uri: "http://10.129.231.61:14050/search/autocomplete"
+  related:
+    uri: "http://10.129.231.61:14050/search/related"
+  popquery:
+    uri: "http://10.129.231.61:14050/search/popquery"
   web:
     uri: "http://localhost:8082/api/search/web"
+  web2:
+    uri: "http://localhost:8082/api/search/web2"
+  web3:
+    uri: "http://localhost:8082/api/search/web3"
   app:
     uri: "http://localhost:8082/api/search/app"
-  chat:
-    uri: "http://localhost:8081/api/search/chat"
-
