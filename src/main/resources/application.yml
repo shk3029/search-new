@@ -8,3 +8,4 @@ service:
     uri: "http://localhost:8082/api/search/app"
   chat:
     uri: "http://localhost:8081/api/search/chat"
+
